@@ -29,6 +29,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+build_err.log
+
+# local temp files
+README_temp.md
 
 # env files (can opt-in for committing if needed)
 .env*
