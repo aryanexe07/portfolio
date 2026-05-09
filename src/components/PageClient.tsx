@@ -22,9 +22,9 @@ function AmbientBlobs() {
 
   return (
     <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
-      <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] bg-[#D5DEEF]/30 rounded-full blur-[120px] will-change-transform animate-blob-float" />
-      <div className="absolute top-[40%] right-[-10%] w-[500px] h-[500px] bg-[#B1C9EF]/20 rounded-full blur-[100px] will-change-transform animate-blob-float" style={{ animationDelay: '-5s' }} />
-      <div className="absolute bottom-[-10%] left-[20%] w-[550px] h-[550px] bg-[#8AAEE0]/15 rounded-full blur-[110px] will-change-transform animate-blob-float" style={{ animationDelay: '-10s' }} />
+      <div className="absolute top-[-10%] left-[-5%] w-[var(--blob-size-1)] h-[var(--blob-size-1)] bg-[var(--blob-1)] rounded-full will-change-transform animate-blob-float transition-all duration-700" style={{ filter: 'var(--blob-blur-1, blur(120px))' }} />
+      <div className="absolute top-[40%] right-[-10%] w-[var(--blob-size-2)] h-[var(--blob-size-2)] bg-[var(--blob-2)] rounded-full will-change-transform animate-blob-float transition-all duration-700" style={{ animationDelay: '-5s', filter: 'var(--blob-blur-2, blur(100px))' }} />
+      <div className="absolute bottom-[-10%] left-[20%] w-[var(--blob-size-3)] h-[var(--blob-size-3)] bg-[var(--blob-3)] rounded-full will-change-transform animate-blob-float transition-all duration-700" style={{ animationDelay: '-10s', filter: 'var(--blob-blur-3, blur(110px))' }} />
     </div>
   );
 }

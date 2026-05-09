@@ -41,28 +41,39 @@ export function Bootloader({ onComplete }: { onComplete: () => void }) {
     return () => clearInterval(timer);
   }, [onComplete]);
 
+  // Hardcoded values for Fix 3.1
+  const COLORS = {
+    bg: "#0D1117",
+    text: "#FFFFFF",
+    accent: "#C0392B",
+    muted: "#4A5568",
+    track: "rgba(255,255,255,0.08)",
+    fill: "linear-gradient(90deg, #7B2A2A, #C0392B)"
+  };
+
   return (
     <div 
       ref={containerRef}
-      className={`fixed inset-0 z-[999] flex flex-col items-center justify-center bg-lightest transition-all duration-900 ease-in-out ${
+      style={{ backgroundColor: COLORS.bg }}
+      className={`fixed inset-0 z-[999] flex flex-col items-center justify-center transition-all duration-900 ease-in-out ${
         isVisible ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
       }`}
     >
-      <div className="font-mono text-darkest font-medium tracking-wide flex items-center gap-2 mb-1">
-        <span className="text-accent-blue">{">_"}</span>
-        <span>aryan<span className="text-navy">.exe</span></span>
+      <div className="font-mono font-medium tracking-wide flex items-center gap-2 mb-1" style={{ color: COLORS.text }}>
+        <span style={{ color: COLORS.accent }}>{">_"}</span>
+        <span>aryan<span style={{ color: COLORS.accent }}>.exe</span></span>
       </div>
-      <div className="text-[11px] text-muted mb-8 tracking-widest font-sans">
+      <div className="text-[11px] mb-8 tracking-widest font-sans" style={{ color: COLORS.muted }}>
         VERSION 2.6.0
       </div>
 
-      <div className="w-[160px] h-[1px] bg-mid-blue/20 relative overflow-hidden">
+      <div className="w-[160px] h-[1px] relative overflow-hidden" style={{ backgroundColor: COLORS.track }}>
         <div 
-          className="absolute top-0 left-0 h-full bg-navy transition-all duration-75 ease-out"
-          style={{ width: `${progress}%` }}
+          className="absolute top-0 left-0 h-full transition-all duration-75 ease-out"
+          style={{ width: `${progress}%`, background: COLORS.fill }}
         />
       </div>
-      <div className="text-[10px] text-muted mt-3 font-mono">
+      <div className="text-[10px] mt-3 font-mono" style={{ color: COLORS.muted }}>
         {Math.floor(progress)}%
       </div>
     </div>

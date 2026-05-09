@@ -11,7 +11,7 @@ export default function Home() {
         <Suspense
           fallback={
             <section className="w-full max-w-[1280px] mx-auto px-6 sm:px-14 py-24 mb-10">
-              <div className="h-[300px] rounded-2xl bg-white/30 animate-pulse" />
+              <div className="h-[300px] rounded-2xl bg-[var(--card-bg)] animate-pulse" />
             </section>
           }
         >

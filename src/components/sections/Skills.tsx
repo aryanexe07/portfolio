@@ -33,23 +33,23 @@ export function Skills() {
   }, []);
 
   return (
-    <section id="skills" ref={sectionRef} className="w-full max-w-[1280px] mx-auto px-6 sm:px-14 py-20 border-t border-soft-blue/20 relative">
-      <h2 className="font-fraunces font-medium text-[clamp(28px,3vw,38px)] text-navy mb-12 text-center md:text-left">
-        Tools of <span className="italic text-accent-blue font-light">the trade.</span>
+    <section id="skills" ref={sectionRef} className="w-full max-w-[1280px] mx-auto px-6 sm:px-14 py-20 border-t border-[var(--divider)] relative">
+      <h2 className="font-fraunces font-medium text-[clamp(28px,3vw,38px)] text-[var(--accent-deep)] mb-12 text-center md:text-left transition-colors duration-300">
+        Tools of <span className="italic text-[var(--accent)] font-light">the trade.</span>
       </h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {SKILL_CATEGORIES.map((category) => (
           <div key={category.name} className="flex flex-col">
-            <h3 className="text-[14px] text-navy font-medium mb-5 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-blue inline-block" />
+            <h3 className="text-[14px] text-[var(--accent-deep)] font-medium mb-5 flex items-center gap-2 transition-colors duration-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] inline-block" />
               {category.name}
             </h3>
             <div className="flex flex-wrap gap-2.5">
               {category.skills.map(skill => (
                 <div 
                   key={skill} 
-                  className="skill-pill opacity-0 px-3 py-1.5 bg-white/60 border border-mid-blue/30 backdrop-blur-md rounded-full text-[13px] text-darkest font-light shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-blue hover:shadow-md cursor-default"
+                  className="skill-pill opacity-0 px-3 py-1.5 bg-[var(--card-bg)] border border-[var(--card-border)] backdrop-blur-md rounded-full text-[13px] text-[var(--text)] font-light shadow-[var(--card-shadow)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--card-border-hover)] hover:shadow-[var(--card-shadow-hover)] cursor-default"
                 >
                   {skill}
                 </div>

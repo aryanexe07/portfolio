@@ -72,10 +72,10 @@ export function FloatingCard({ children, className, delay = 0, duration = 8, onH
     >
       <div 
         ref={cardRef}
-        className="w-full h-full bg-[rgba(255,255,255,0.62)] backdrop-blur-[20px] border border-[rgba(98,142,203,0.2)] rounded-[18px] p-5 pb-11 shadow-[0_8px_32px_rgba(57,88,134,0.10),inset_0_1px_0_rgba(255,255,255,0.9)] transition-colors hover:border-[#628ECB]/50 hover:shadow-[0_16px_48px_rgba(57,88,134,0.15)] will-change-transform"
+        className="w-full h-full bg-[var(--card-bg)] backdrop-blur-[20px] border border-[var(--card-border)] rounded-[18px] p-5 pb-11 shadow-[var(--card-shadow)] transition-all duration-300 hover:border-[var(--card-border-hover)] hover:shadow-[var(--card-shadow-hover)] will-change-transform"
       >
         {children}
-        <button className="absolute bottom-4 right-4 w-[26px] h-[26px] rounded-full border border-soft-blue/50 flex items-center justify-center text-navy transition-all duration-300 hover:border-accent-blue hover:translate-x-0.5 hover:-translate-y-0.5 pointer-events-none">
+        <button className="absolute bottom-4 right-4 w-[26px] h-[26px] rounded-full border border-[var(--card-border)] flex items-center justify-center text-[var(--accent-deep)] transition-all duration-300 hover:border-[var(--accent)] hover:translate-x-0.5 hover:-translate-y-0.5 pointer-events-none">
           <span className="text-[14px]">→</span>
         </button>
       </div>

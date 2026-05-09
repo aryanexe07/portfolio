@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/components/ui/Button";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const LINKS = [
   { name: "Home", href: "#home" },
@@ -21,7 +22,6 @@ export function Navbar() {
       let current = "#home";
       sections.forEach((sec: any) => {
         const rect = sec.getBoundingClientRect();
-        // If section's top is past the middle of the screen
         if (rect.top <= window.innerHeight / 2) {
           current = `#${sec.id}`;
         }
@@ -43,11 +43,11 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-[14px] left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-[1100px] h-[50px] bg-[rgba(240,243,250,0.76)] backdrop-blur-[20px] border border-[rgba(177,201,239,0.5)] rounded-[14px] shadow-[0_4px_24px_rgba(57,88,134,0.08),inset_0_1px_0_rgba(255,255,255,0.85)] z-[90] flex items-center justify-between px-5">
+    <nav className="fixed top-[14px] left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-[1100px] h-[50px] bg-[var(--navbar-bg)] backdrop-blur-[20px] border border-[var(--navbar-border)] rounded-[14px] shadow-[var(--navbar-shadow)] z-[90] flex items-center justify-between px-5 transition-all duration-300">
       {/* Left */}
       <div className="font-mono text-[14px] font-medium tracking-wide flex items-center gap-1.5 cursor-pointer">
-        <span className="text-accent-blue">{">_"}</span>
-        <span>aryan<span className="text-navy">.exe</span></span>
+        <span className="text-[var(--accent)]">{">_"}</span>
+        <span className="text-[var(--text)]">aryan<span className="text-[var(--accent-deep)]">.exe</span></span>
       </div>
 
       {/* Center */}
@@ -61,12 +61,15 @@ export function Navbar() {
               onClick={(e) => handleClick(e, link.href)}
               className={cn(
                 "relative px-4 py-1.5 rounded-md text-[13px] transition-all duration-300",
-                isActive ? "text-navy font-medium" : "text-muted hover:bg-[rgba(98,142,203,0.1)]"
+                isActive ? "text-[var(--text)] font-semibold" : "text-[var(--text-muted)] hover:bg-[var(--badge-bg)]"
               )}
             >
               {link.name}
               {isActive && (
-                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-[3px] h-[3px] rounded-full bg-accent-blue" />
+                <span 
+                  className="absolute bottom-1 left-1/2 -translate-x-1/2 w-[3px] h-[3px] rounded-full transition-all duration-300" 
+                  style={{ backgroundColor: 'var(--nav-dot-bg)', boxShadow: 'var(--nav-dot-shadow)' }}
+                />
               )}
             </a>
           );
@@ -74,12 +77,15 @@ export function Navbar() {
       </div>
 
       {/* Right */}
-      <a 
-        href="#resume" 
-        className="magnetic bg-navy text-white text-[12px] font-medium px-4 py-1.5 rounded-lg shadow-sm hover:bg-accent-blue transition-colors will-change-transform"
-      >
-        Resume
-      </a>
+      <div className="flex items-center gap-3">
+        <ThemeToggle />
+        <a 
+          href="#resume" 
+          className="magnetic bg-[var(--accent-deep)] text-white text-[12px] font-medium px-4 py-1.5 rounded-lg shadow-[var(--btn-primary-shadow)] hover:opacity-90 transition-all duration-300 will-change-transform"
+        >
+          Resume
+        </a>
+      </div>
     </nav>
   );
 }
